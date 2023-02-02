@@ -1,0 +1,53 @@
+﻿@*Truyền vào ViewModels trong thư mục*@
+@model Car_Maintenance.ViewModels.TrackingVM
+
+<div class="container mt-5 text-center">
+    <div class="mb-4 text-start">
+        <a class="text-primary fw-bold text-decoration-none" asp-action="SearchResult" asp-controller="TrackingHistory" asp-route-SearchString="@Model.Baoduong.Soxe">
+            <i class="fa-solid fa-angle-left"></i>&nbsp;&nbsp;&nbsp;Back
+        </a>
+    </div>
+    <label asp-for="Baoduong.Ngaygionhan"></label>
+    <input style="margin-left:10px" value="@Model.Baoduong.Ngaygionhan" aria-required="true" readonly />
+    <label style="margin-left:100px" asp-for="Baoduong.Ngaygiotra"></label>
+    <input style="margin-left:10px" value="@Model.Baoduong.Ngaygiotra" readonly />
+
+    <br />
+    <div class="my-5">
+        <label>Thành tiền</label>
+        @{
+            var total = 0;
+            foreach (var item in Model.CT_BD)
+            {
+                total += item.Congviec.Dongia;
+            }
+        }
+        <input style="margin-left:10px" value="@total" readonly/>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead class="text-info text-center">
+            <tr>
+                <th>Tên công việc</th>
+                <th>Đơn giá</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            @foreach (var cv in Model.CT_BD)
+            {
+                <tr>
+                    <td>@cv.Congviec.Tencv</td>
+                    <td>@cv.Congviec.Dongia</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a asp-controller="TrackingHistory" asp-action="Delete" asp-route-id="@cv.Macv">
+                                Xóa
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

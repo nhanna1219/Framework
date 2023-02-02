@@ -1,0 +1,50 @@
+﻿@*IENumerable chỉ @*ra rằng, thứ mình truyền vào là một list dữ liệu, không phải một dòng dữ liệu, có thể dùng List<> cũng dc*@
+@model IEnumerable<Baoduong>
+<div class="container mt-5">
+    <div class="mb-4">
+        <a class="text-primary fw-bold text-decoration-none" asp-action="Index" asp-controller="TrackingHistory">
+            <i class="fa-solid fa-angle-left"></i>&nbsp;&nbsp;&nbsp;Back
+        </a>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead class="text-info text-center">
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.Ngaygionhan)</th>
+                <th>@Html.DisplayNameFor(m => m.Ngaygiotra)</th>
+                <th>@Html.DisplayNameFor(m => m.Sokm)</th>
+                <th>@Html.DisplayNameFor(m => m.Noidung)</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            @foreach (var bd in Model)
+            {
+                <tr>
+                    <td>@bd.Ngaygionhan</td>
+                    <td>@bd.Ngaygiotra</td>
+                    <td>@bd.Sokm</td>
+                    <td>@bd.Noidung</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a asp-controller="TrackingHistory" asp-action="Details" asp-route-id="@bd.Mabd">
+                                Xem
+                            </a>
+                            &emsp; &emsp;
+                            @if (String.IsNullOrEmpty(bd.Ngaygiotra))
+                            {
+                                <a asp-controller="TrackingHistory" asp-action="Edit" asp-route-id="@bd.Mabd">
+                                    Sửa
+                                </a>
+                            }
+                            else
+                            {
+                                <p>Sửa</p>
+                            }
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

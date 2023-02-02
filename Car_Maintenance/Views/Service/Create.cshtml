@@ -1,0 +1,33 @@
+﻿@*Lấy dữ liệu truyền vào theo cách strongly typed*@
+@model Car_Maintenance.Models.Congviec
+
+<div class="container mt-4">
+    <div class="title">
+        <h2 class="text-success">Thêm Công Việc</h2>
+    </div>
+
+    <form class="w-25 mt-4" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="mb-3">
+            <label asp-for="Macv" class="form-label"></label>
+            <input class="form-control" asp-for="Macv" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Tencv" class="form-label"></label>
+            <input class="form-control" asp-for="Tencv" />
+        </div>
+        <div class="mb-4">
+            <label asp-for="Dongia" class="form-label"></label>
+            <input class="form-control" asp-for="Dongia" />
+        </div>
+        <div class="text-center mt-2">
+            <button type="submit" class="btn btn-primary">Cập nhật</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+

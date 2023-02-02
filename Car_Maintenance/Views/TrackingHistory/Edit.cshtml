@@ -1,0 +1,31 @@
+﻿@model Baoduong
+
+<div class="container mt-5">
+    <div class="title">
+        <h2 class="text-success">Chỉnh sửa</h2>
+    </div>
+    <form class="w-25 mt-4" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div>
+            <input class="form-control" asp-for="Mabd" hidden />
+            <input class="form-control" asp-for="Soxe" hidden />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Ngaygionhan" class="form-label"></label>
+            <input class="form-control" asp-for="Ngaygionhan" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Ngaygiotra" class="form-label"></label>
+            <input class="form-control" asp-for="Ngaygiotra" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Sokm" class="form-label"></label>
+            <input class="form-control" asp-for="Sokm" />
+        </div>
+        <div class="mb-4">
+            <label asp-for="Noidung" class="form-label"></label>
+            <input class="form-control" asp-for="Noidung" />
+        </div>
+        <button type="submit" class="btn btn-primary">Cập nhật</button>
+    </form>
+</div>
